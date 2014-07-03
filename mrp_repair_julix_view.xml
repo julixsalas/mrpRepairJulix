@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<!-- Siempre las lineas xml van a ir delimitados por la etiqueta openerp-->
+<openerp>
+        <!-- Las etiquetas data tambien delimitan a las record siempre -->
+        <data>
+                <!-- La etiqueta record son la que permitiran mostrar el campo color en el formulario producto-->
+                <record model='ir.ui.view' id='view_repair_order_form'>
+                        <field name='name'>mrp.repair.julix.form</field>
+                        <field name='model'>mrp.repair</field>
+                        <field name='inherit_id' ref='mrp_repair.view_repair_order_form' />
+                        <field name='arch' type='xml'>
+				<data>
+                                	<xpath expr="//field[@name='operations']/tree//field[@name='price_subtotal']" position="after">
+                                	        <field name="usuario"/> <!-- llamamos al campo coleres con el atributo name de field -->
+                                	        <field name="date"/> <!-- llamamos al campo coleres con el atributo name de field -->
+                                        </xpath>
+                        	</data>
+			</field>
+ 
+                </record>
+        </data>
+</openerp>
